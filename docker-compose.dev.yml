@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  sdn-simulator:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8080:8080"
+      - "35729:35729"  # LiveReload port
+    container_name: sdn-simulator-dev
+    restart: unless-stopped
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    volumes:
+      - ./src:/app/src
+      - ./target:/app/target
+      - maven-cache:/root/.m2
+
+volumes:
+  maven-cache:

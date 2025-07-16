@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  sdn-simulator:
+    build: .
+    ports:
+      - "8080:8080"
+    container_name: sdn-simulator-app
+    restart: unless-stopped
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    # Optional: mount logs directory
+    volumes:
+      - ./logs:/app/logs
