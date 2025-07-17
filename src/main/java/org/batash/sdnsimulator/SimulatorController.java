@@ -26,7 +26,21 @@ public class SimulatorController {
 
         Statistics stats = simulator.run(0.0f, 100.0f);
 
-        // Return a simple notification (customize as needed)
-        return "Simulation finished. Stats: " + stats.toString();
+        return String.format(
+                "Simulation finished.<br>" +
+                        "Avg Flow Completion Time: %.2f<br>" +
+                        "Avg Flow Throughput: %.2f<br>" +
+                        "Avg Startup Delay: %.2f<br>" +
+                        "Fairness Index: %.2f<br>" +
+                        "Bottleneck Utilization: %.2f<br>" +
+                        "Bottleneck Avg Queue Length: %.2f<br>" +
+                        "Bottleneck Max Queue Length: %.2f",
+                stats.getAvgFlowCompletionTime(),
+                stats.getAvgFlowThroughput(),
+                stats.getAvgStartupDelay(),
+                stats.getFairnessIndex(),
+                stats.getBottleneckUtilization(),
+                stats.getBtlAvgQueueLength(),
+                stats.getBtlMaxQueueLength());
     }
 }
