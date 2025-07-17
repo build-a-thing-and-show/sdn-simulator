@@ -23,7 +23,9 @@ import org.batash.sdnsimulator.core.utility.Keywords;
 import org.batash.sdnsimulator.core.utility.Mathematics;
 import org.batash.sdnsimulator.core.utility.Statistics;
 import org.batash.sdnsimulator.core.utility.datastructure.OneToOneMap;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Simulator {
 
 	private OneToOneMap nodeLabels;
